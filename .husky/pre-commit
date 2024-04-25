@@ -1,2 +1,0 @@
-pnpm migrate:generate
-git add drizzle/**
