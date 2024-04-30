@@ -3,6 +3,7 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
 import { DatabaseConfigService } from 'src/config/database/database.config.service';
 import * as schema from './schema';
+import { DrizzleService } from './database.service';
 const databaseProvider = {
   provide: 'DB',
   useFactory: async (config: DatabaseConfigService) => {
@@ -28,6 +29,6 @@ const databaseProvider = {
 
 @Module({
   providers: [databaseProvider],
-  exports: ['DB'],
+  exports: ['DB', DrizzleService],
 })
 export class DatabaseModule {}
